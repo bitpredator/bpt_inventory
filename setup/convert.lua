@@ -309,8 +309,8 @@ local function ConvertQB()
 		table.wipe(parameters)
 		count = 0
 
-		---@type table<string, OxItem[]> maps stash name to inventory
-		local oxEvidence = {}
+		---@type table<string, BptItem[]> maps stash name to inventory
+		local bptEvidence = {}
 
 		for i = 1, #qbEvidence do
 			local qbStash = qbEvidence[i]
@@ -318,16 +318,16 @@ local function ConvertQB()
 			local items = server.convertInventory(nil, (qbStash.items and json.decode(qbStash.items) or {}))
 
 			--- evidence numbers can be shared between locations, so need to maintain map and merge.
-			if oxEvidence[name] then
+			if bptEvidence[name] then
 				for k = 1, #items do
-					oxEvidence[name][#oxEvidence[name]+1] = items[k]
+					bptEvidence[name][#bptEvidence[name]+1] = items[k]
 				end
 			else
-				oxEvidence[name] = items
+				bptEvidence[name] = items
 			end
 		end
 
-		for name, items in pairs(oxEvidence) do
+		for name, items in pairs(bptEvidence) do
 			count += 1
 			parameters[count] = { "INSERT INTO bpt_inventory (owner, name, data) VALUES ('', ?, ?) ON DUPLICATE KEY UPDATE name = VALUES(name), data = VALUES(data)", {
 				name, json.encode(items)
