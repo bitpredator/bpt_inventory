@@ -9,3 +9,4 @@
 2. [packahe-lock.json + package.json]: build(deps): bump sass from 1.56.2 to 1.69.6 @bitpredator
 3. [modules/crafting/server.lua]: refactor: deprecate data function for lib.load @bitpredator
 4. [server/items]: refactor(server/items): assign serial numbers on weapons in stashes @bitpredator
+5. [packahe-lock.json + package.json]: build(deps): bump @types/react from 18.0.26 to 18.2.46 @bitpredator

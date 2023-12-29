@@ -12,7 +12,7 @@
       "@mui/material": "^5.10.17",
       "@types/lodash": "^4.14.191",
       "@types/node": "^18.11.12",
-      "@types/react": "^18.0.26",
+      "@types/react": "^18.2.46",
       "@types/react-dom": "^18.0.9",
       "@types/react-transition-group": "^4.4.5",
       "@vitejs/plugin-react": "^3.0.0",
